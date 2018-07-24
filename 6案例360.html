@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../lib/fullpage.css">
+	<script src="../lib/jquery.min.js"></script>
+	<script src="../lib/fullpage.js"></script>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+			color: #fff;
+		}
+		.section {
+			overflow: hidden;
+		}
+		.first {
+			font-size: 100px;
+			text-align: center;
+		}
+		.first p {	
+			letter-spacing: 65px;
+			opacity: 0.3;
+			transition: letter-spacing 1s, opacity 1s;
+		}
+		 .first.current p{
+			letter-spacing: 10px;
+			opacity: 1;
+		}
+		.second .left {
+			width: 420px;
+			padding: 0 200px;
+		}
+		.second>div {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.second .right {
+			flex: 1;
+		}
+		.second .left > img {
+			transition: transform 2s;
+		} 
+		.second .left > img:nth-of-type(1) {
+			transform: translate(20px,100px) rotate(20deg);
+		}
+		.second .left > img:nth-of-type(2) {
+			transform: translate(70px,-100px) rotate(-20deg);
+		}
+		.second .left > img:nth-of-type(3) {
+			transform: translate(30px,100px) rotate(120deg);
+		}
+		.second .left > img:nth-of-type(4) {
+			transform: translate(30px,-10px) rotate(320deg);
+		}
+		.second.current .left > img {
+			transform: none;
+		}
+		.third {
+			position: relative;	
+		}
+		.third .left {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-100%,-50%);
+		}
+		.third .right {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			right: 50%;
+			top: 50%;
+			background: url("../img/图片1.png");
+			background-repeat: no-repeat;
+			transform: translate(100%,-50%);
+		}
+		.third .right .cxk {
+			width: 300px;
+			height: 450px;
+			background: url("../img/a5.jpg"); 
+			position: absolute;
+			left: -300px;
+			top: 0;
+			transition: left 1s;
+		}
+		.third.current .right .cxk {
+			left: 0;
+		}
+		.fourth {
+			position: relative;
+		}
+		.fourth .left {
+			width: 404px;
+			height: 200px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-100%,-50%);
+			overflow: hidden;
+		}
+		.fourth .left>input {
+			width: 400px;
+			height: 50px;
+			transition: transform 1s;
+			transform: translateX(-100%);
+		}
+		.fourth.current .left>input {
+			transform: translateX(0%);
+		}
+		.fourth .left>.searchTxt {
+			background: url(../img/searchTxt.png);
+		    width: 224px;
+		    height: 39px;
+		    position: absolute;
+		    left: -221px;
+		    top: 4px;
+		    transition: transform 1s 1s steps(6);
+		    transform: translateX(-224px);
+		}
+		.fourth.current .left>.searchTxt {
+			transform: translateX(224px);
+		}
+		.fourth .left>.result {
+			background: url(../img/result.png);
+		    position: absolute;
+		    width: 404px;
+		    height: 0;
+		    background-repeat: no-repeat;
+		    position: absolute;
+		    left: 0;
+		    top: 54px;
+		    transition: height 1s 3s;
+		}
+		.fourth.current .left>.result {
+			height: 136px;
+		}
+		.fourth .right {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			right: 50%;
+			top: 50%;
+			transform: translate(130%,-50%);
+		}
+
+	</style>
+</head>
+<body>
+<div id="fullpage">
+    <div class="section first"><p>4亿网友共同信赖</p></div>
+    <div class="section second">
+		<div class="left">
+			<img src="../img/图片1.png">
+			<img src="../img/图片2.png">
+			<img src="../img/图片3.png">
+			<img src="../img/图片4.png">
+		</div>
+		<div class="right"><h1>安全防护</h1></div>
+    </div>
+    <div class="section third">
+		<div class="left"><h1>cxk</h1></div>
+		<div class="right">
+			<div class="cxk"></div>
+		</div>
+    </div>
+    <div class="section fourth">
+		<div class="left">
+			<input type="text" name="">
+			<div class="searchTxt"></div>
+			<div class="result"></div>
+		</div>
+		<div class="right"><h1>搜索</h1></div>
+    </div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$('#fullpage').fullpage({
+			sectionsColor : ['lightgreen','orange','skyblue','pink'],
+			afterLoad: function(anchorLink,obj) {
+				var index = obj.index;
+				$('.section').removeClass('current');
+				setTimeout(function() {
+					$('.section').eq(index).addClass('current');
+				},500);
+			}
+		});
+	})
+</script>
+</body>
+</html>

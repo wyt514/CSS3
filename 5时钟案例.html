@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.clock {
+			width: 300px;
+			height: 300px;
+			border: 5px solid #ccc;
+			margin: 100px auto;
+			border-radius: 50%;
+			position: relative;
+		}
+		.line {
+			position: absolute;
+			left: 50%;
+			top: 0;
+			width: 5px;
+			height: 100%;
+			background: #ccc;
+			transform: translateX(-50%);
+		}
+		.line2 {
+			transform: translateX(-50%) rotate(30deg);/***/
+		}
+		.line3 {
+			transform: translateX(-50%) rotate(60deg);
+		}
+		.line4 {
+			transform: translateX(-50%) rotate(90deg);
+		}
+		.line5 {
+			transform: translateX(-50%) rotate(120deg);
+		}
+		.line6 {
+			transform: translateX(-50%) rotate(150deg);
+		}
+		.line1, .line4 {
+			width: 7px;
+		}
+		.cover {
+			width: 80%;
+			height: 80%;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top:50%;
+			transform: translate(-50%,-50%);
+			background: #fff;
+		}
+		.hour {
+			width: 10px;
+			height: 80px;
+			background: red;
+			position: absolute;
+			left: 50%;
+			top:50%;
+			transform: translate(-50%,-100%);
+			animation: clockAnimation 43200s infinite steps(60);
+			transform-origin: center bottom;
+		}
+		.minute {
+			width: 6px;
+			height: 90px;
+			background: green;
+			position: absolute;
+			left: 50%;
+			top:50%;
+			transform: translate(-50%,-100%);
+			animation: clockAnimation 3600s infinite steps(60);
+			transform-origin: center bottom;
+		}
+		.second {
+			width: 3px;
+			height: 100px;
+			background: blue;
+			position: absolute;
+			left: 50%;
+			top:50%;
+			transform: translate(-50%,-100%);
+			animation: clockAnimation 60s steps(60) infinite;
+			transform-origin: center bottom;
+		}
+		.center {
+			width: 8%;
+			height: 8%;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top:50%;
+			transform: translate(-50%,-50%);
+			background: #ccc;
+		}
+		@keyframes clockAnimation {
+			from {
+				transform: translate(-50%,-100%) rotate(0deg);
+			}
+			to {
+				transform: translate(-50%,-100%) rotate(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="clock">
+		<div class="line line1"></div>
+		<div class="line line2"></div>
+		<div class="line line3"></div>
+		<div class="line line4"></div>
+		<div class="line line5"></div>
+		<div class="line line6"></div>
+		<div class="cover"></div>
+		<div class="hour"></div>
+		<div class="minute"></div>
+		<div class="second"></div>
+		<div class="center"></div>
+	</div>
+</body>
+</html>
